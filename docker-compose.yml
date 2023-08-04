@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  rabbitmq:
+    container_name: "rabbitmq"
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=root
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    networks:
+      - net
+
+  dotnet_api:
+      container_name: "dotnet_api"
+      build: ./EmailService.API
+      ports:
+        - '8000:80'
+      links:
+        - rabbitmq
+      networks:
+      - net
+    
+  dotnet_console:
+    container_name: "dotnet_console"
+    build: ./EmailService.ConsumerConsole
+    links:
+      - rabbitmq
+    networks:
+    - net
+
+networks:
+  net:
+    driver: bridge
