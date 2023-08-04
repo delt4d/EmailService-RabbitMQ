@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ArG5hTdYMClVJ/FGtjyylBwXwqviv2InUPdVdbeaKbs=",
+  "Source": "EmailService.API",
+  "BasePath": "_content/EmailService.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
